@@ -90,13 +90,65 @@ public class Arr2D {
         }
     }
 
-
-
     // tim gia tri lon nhat moi hang
-    // tim gia tri lon nhat moi cot
+    public void printMaxInRow() {
+        System.out.println("\nGiá trị lớn nhất mỗi hàng");
+        for (int i = 0; i < arr2D.length; i++) {
+            int row[] = arr2D[i];
 
+            int max = row[0];
+            for (int j = 0; j < row.length; j++) {
+                if (max < row[j]) {
+                    max = row[j];
+                }
+            }
+
+            System.out.println("Giá trị lớn nhất hàng " + i + ": " + max);
+        }
+    }
+
+    // tim gia tri lon nhat moi cot
+    public void printMaxInCol() {
+        System.out.println("\nGiá trị lớn nhất mỗi cột");
+
+        for (int j = 0; j < arr2D[0].length; j++) {
+            int max = arr2D[0][j];
+
+            for (int i = 0; i < arr2D.length; i++) {
+                if (max < arr2D[i][j]) {
+                    max = arr2D[i][j];
+                }
+            }
+
+            System.out.println("Giá trị lớn nhất cột " + j + ": " + max);
+        }
+    }
 
     // tinh tong duong cheo trai
-    // tinh tong duong cheo phai
+    public void calcSumOfLineLeft() {
+        int sum = 0;
+        for (int j = 0; j < arr2D[0].length; j++) {
+            for (int i = 0; i < arr2D.length; i++) {
+                if (i == j) {
+                    sum += arr2D[i][j];
+                }
+            }
+        }
 
+        System.out.println("Tổng đường chéo trái: " + sum);
+    }
+
+    // tinh tong duong cheo phai
+    public void calcSumOfLineRight() {
+        int sum = 0;
+        for (int i = 0; i < arr2D.length; i++) {
+            for (int j = arr2D[0].length - 1; j >= 0; j--) {
+                if (i == arr2D[0].length - 1 - j) {
+                    sum += arr2D[i][j];
+                }
+            }
+        }
+
+        System.out.println("Tổng đường chéo phải: " + sum);
+    }
 }
